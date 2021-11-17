@@ -1,18 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: snagat <snagat@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/04 12:58:27 by snagat            #+#    #+#             */
-/*   Updated: 2021/11/16 17:29:38 by snagat           ###   ########.fr       */
+/*   Created: 2021/11/13 12:34:36 by snagat            #+#    #+#             */
+/*   Updated: 2021/11/13 14:25:36 by snagat           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+ #include "libft.h"
 
-int	ft_isprint(int ch)
+void    ft_putendl_fd(char  *s, int fd)
 {
-	return (ch >= 32 && ch < 127);
+	int i;
+
+	i = 0;
+    if (!s)
+		return ;
+	while (s[i])
+	{
+		write(fd, &s[i], 1);
+		i++;
+	}
+	s[i] = '\0';
+    write(fd,"\n", 1);
 }

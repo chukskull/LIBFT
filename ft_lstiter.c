@@ -1,18 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: snagat <snagat@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/04 12:58:27 by snagat            #+#    #+#             */
-/*   Updated: 2021/11/16 17:29:38 by snagat           ###   ########.fr       */
+/*   Created: 2021/11/15 21:29:17 by snagat            #+#    #+#             */
+/*   Updated: 2021/11/15 21:37:13 by snagat           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-int	ft_isprint(int ch)
+void    ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	return (ch >= 32 && ch < 127);
+    while(lst)
+    {
+        (*f)(lst ->content);
+        lst = lst->next;
+    }
 }

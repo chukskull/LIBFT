@@ -1,38 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: snagat <snagat@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/04 17:28:25 by snagat            #+#    #+#             */
-/*   Updated: 2021/11/16 17:17:29 by snagat           ###   ########.fr       */
+/*   Created: 2021/11/06 10:28:15 by snagat            #+#    #+#             */
+/*   Updated: 2021/11/16 21:28:27 by snagat           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+//if character not found return NULL '0'
+//if character found will be returened as the first to the end
+
 #include "libft.h"
 
-void	*ft_memset(void *b, int c, size_t len)
+char	*ft_strchr(const char *str, int c)
 {
-	unsigned char	*ptr;
+	int	i;
 
-	ptr = (unsigned char *) b;
-	while (len > 0)
+	i = 0;
+	while (str[i])
 	{
-		(*ptr++) = (unsigned char) c;
-		len--;
+		if (str[i] == c)
+			return ((char *)&str[i]);
+		i++;
 	}
-	return (b);
+	if (c == 0)
+	{
+		return ((char *)&str[i]);
+	}
+	return (NULL);
 }
 /*#include <stdio.h>
 int main()
 {
-	char b[] = "saleh nagat";
-	int c = 48;
-	size_t  f = 8;
-	char *p;
-
-	p = ft_memset(b,c,f);
-	printf("%s", p);
+	char str[] = "Florida kilos";
+	int c = 'a';
+	char *s;
+	s = ft_strchr(str,c);
+	printf("%s", s);
 }
 */

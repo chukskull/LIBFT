@@ -1,38 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: snagat <snagat@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/04 17:28:25 by snagat            #+#    #+#             */
-/*   Updated: 2021/11/16 17:17:29 by snagat           ###   ########.fr       */
+/*   Created: 2021/11/07 14:33:10 by snagat            #+#    #+#             */
+/*   Updated: 2021/11/16 21:28:56 by snagat           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *b, int c, size_t len)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	unsigned char	*ptr;
+	unsigned int	i;
+	unsigned int	j;
 
-	ptr = (unsigned char *) b;
-	while (len > 0)
+	i = 0;
+	if (needle[0] == '\0')
 	{
-		(*ptr++) = (unsigned char) c;
-		len--;
+		return ((char *)haystack);
 	}
-	return (b);
+	while (haystack[i] && i < len)
+	{
+		j = 0;
+		while (needle[j] && haystack[i + j] == needle[j] && i + j < len)
+		{
+			if (needle[j + 1] == '\0')
+				return ((char *)&haystack[i]);
+			j++;
+		}
+		i++;
+	}
+	return (0);
 }
 /*#include <stdio.h>
 int main()
 {
-	char b[] = "saleh nagat";
-	int c = 48;
-	size_t  f = 8;
+	char s[] = "ilove u so much";
+	char s1[] = "u so";
 	char *p;
-
-	p = ft_memset(b,c,f);
+	p = ft_strnstr(s,s1,12);
 	printf("%s", p);
-}
-*/
+}*/
