@@ -6,13 +6,13 @@
 /*   By: snagat <snagat@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 11:31:08 by snagat            #+#    #+#             */
-/*   Updated: 2021/11/16 00:00:39 by snagat           ###   ########.fr       */
+/*   Updated: 2021/11/16 17:27:50 by snagat           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_isdigit(int  ch)
+int	ft_isdigit(int ch)
 {
 	return (ch >= '0' && ch <= '9');
-} 
+}

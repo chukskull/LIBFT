@@ -6,16 +6,19 @@
 /*   By: snagat <snagat@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/15 21:29:17 by snagat            #+#    #+#             */
-/*   Updated: 2021/11/15 21:37:13 by snagat           ###   ########.fr       */
+/*   Updated: 2021/11/18 02:56:04 by snagat           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-void    ft_lstiter(t_list *lst, void (*f)(void *))
+
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-    while(lst)
-    {
-        (*f)(lst ->content);
-        lst = lst->next;
-    }
+	if (!lst || !f)
+		return ;
+	while (lst)
+	{
+		f(lst ->content);
+		lst = lst->next;
+	}
 }
